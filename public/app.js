@@ -1,13 +1,559 @@
-const PRODUCTS=[{"id": "orange-cream", "name": "Orange Juice Body Cream", "price": 3.99, "price_id": "price_1U5XJ8LrpSDZrH2ju7UPvgpt", "size": "4 oz", "category": "Skin Care", "image": "assets/orange-cream.jpg", "description": "Refreshing body cream with orange-inspired care to hydrate, soften and leave skin feeling smooth."}, {"id": "shea-4", "name": "Shea Butter Body Cream", "price": 3.99, "price_id": "price_1U5XJCLrpSDZrH2jzlskE80C", "size": "4 oz", "category": "Skin Care", "image": "assets/shea-4.jpg", "description": "Rich 4 oz shea butter cream designed for deep moisture, softness and everyday skin nourishment."}, {"id": "shea-2", "name": "Shea Butter Body Cream", "price": 3.49, "price_id": "price_1U5XJGLrpSDZrH2j68VsUWJK", "size": "2 oz", "category": "Skin Care", "image": "assets/shea-2.jpg", "description": "Compact 2 oz moisturizing shea butter cream, ideal for travel and daily hydration."}, {"id": "argan-serum", "name": "Argan Oil Serum", "price": 3.49, "price_id": "price_1U5XK9LrpSDZrH2jdytijiSu", "size": "Serum", "category": "Body Care", "image": "assets/argan-serum.jpg", "description": "Lightweight argan oil serum that helps nourish and hydrate hair, face and skin."}, {"id": "menthol-balm", "name": "Menthol Muscle Balm", "price": 3.99, "price_id": "price_1U5XKELrpSDZrH2jjfQUIr2A", "size": "4 oz", "category": "Body Care", "image": "assets/menthol-balm.jpg", "description": "Cooling menthol balm formulated for a soothing massage experience on tired muscles."}, {"id": "body-lotion", "name": "Hand & Body Lotion", "price": 4.49, "price_id": "price_1U5XKKLrpSDZrH2jniVLOczt", "size": "200 ml", "category": "Body Care", "image": "assets/body-lotion.jpg", "description": "Lightweight daily lotion that moisturizes hands and body without a heavy or greasy feel."}, {"id": "rose-oil", "name": "Rose Massage Oil", "price": 4.99, "price_id": "price_1U5XKsLrpSDZrH2jnvHEbTWi", "size": "4 oz", "category": "Body Care", "image": "assets/rose-oil.jpg", "description": "Rose-scented massage oil that glides smoothly over skin and leaves it feeling soft and conditioned."}, {"id": "anti-dandruff", "name": "Anti Dandruff Shampoo & Conditioner", "price": 9.99, "price_id": "price_1U5XL1LrpSDZrH2j1O6iFFY0", "size": "8 oz each", "category": "Hair Care", "image": "assets/anti-dandruff.jpg", "description": "Two-piece anti-dandruff hair-care set created to cleanse the scalp while keeping hair soft and manageable."}, {"id": "red-hair", "name": "Red Hair Shampoo & Conditioner", "price": 9.99, "price_id": "price_1U5XLALrpSDZrH2jEMAu9iGr", "size": "8 oz each", "category": "Hair Care", "image": "assets/red-hair.jpg", "description": "Shampoo and conditioner duo made for red hair, helping cleanse, condition and maintain a vibrant-looking finish."}, {"id": "aloe", "name": "Aloe Vera Cream", "price": 4.99, "price_id": "price_1U5XLKLrpSDZrH2jCieLX64q", "size": "4 oz", "category": "Skin Care", "image": "assets/aloe.jpg", "description": "Aloe vera moisturizing cream designed to hydrate, soothe and refresh skin for everyday use."}, {"id": "reishi", "name": "Reishi Mushroom Cream", "price": 4.99, "price_id": "price_1U5XLRLrpSDZrH2juqmnmbY6", "size": "4 oz", "category": "Skin Care", "image": "assets/reishi.jpg", "description": "Moisturizing skin cream featuring reishi mushroom-inspired care for a soft, nourished and radiant appearance."}, {"id": "bronzing", "name": "Skin Bronzing Cream", "price": 4.99, "price_id": "price_1U5XLYLrpSDZrH2jILTP9vgE", "size": "4 oz", "category": "Skin Care", "image": "assets/bronzing.jpg", "description": "Bronzing body cream designed to enhance a warm, sun-kissed appearance while moisturizing skin."}, {"id": "rosemary", "name": "Rosemary Oil", "price": 5.99, "price_id": "price_1U5XLhLrpSDZrH2jzFN5MDTz", "size": "2 oz", "category": "Hair Care", "image": "assets/rosemary.jpg", "description": "Rosemary oil for hair and scalp care, ideal for massage and a nourishing hair-care routine."}, {"id": "collagen", "name": "Collagen Moisturizing Cream", "price": 2.99, "price_id": "price_1U5XLnLrpSDZrH2jSKzaBfx1", "size": "1 oz", "category": "Skin Care", "image": "assets/collagen.jpg", "description": "Lightweight 1 oz collagen moisturizing cream that helps skin feel hydrated, soft and smooth."}, {"id": "vitd", "name": "Vitamin D Body Oil \u2013 Coconut", "price": 4.99, "price_id": "price_1U5XLuLrpSDZrH2j930aOAEP", "size": "4 oz", "category": "Body Care", "image": "assets/vitd.jpg", "description": "Coconut-scented Vitamin D body oil with a lightweight feel for moisturizing and softening the skin."}, {"id": "trio", "name": "Brazilian Premium Hair Care Trio", "price": 11.99, "price_id": "price_1U5XM2LrpSDZrH2jKvQiy8UE", "size": "8 oz + 8 oz + 4 oz", "category": "Hair Care", "image": "assets/trio.jpg", "description": "Complete Brazilian-inspired trio with shampoo, conditioner and leave-in styling cream for cleansing, conditioning and styling."}, {"id": "clarifying", "name": "Clarifying Shampoo & Conditioner", "price": 9.99, "price_id": "price_1U5XMBLrpSDZrH2jEzKMkJfJ", "size": "8.5 fl oz each", "category": "Hair Care", "image": "assets/clarifying.jpg", "description": "Clarifying shampoo and conditioner pair designed to remove buildup while keeping hair nourished and manageable."}];
-let cart=JSON.parse(localStorage.getItem('bencosCart')||'{}');
-const grid=document.getElementById('productGrid'), drawer=document.getElementById('cartDrawer'), backdrop=document.getElementById('backdrop');
-const money=n=>'$'+n.toFixed(2);
-function renderProducts(filter='All'){grid.innerHTML='';PRODUCTS.filter(p=>filter==='All'||p.category===filter).forEach(p=>{const el=document.createElement('article');el.className='product';el.innerHTML=`<img src="${p.image}" alt="${p.name}"><div class="product-body"><small>${p.category}</small><h3>${p.name}</h3><div class="size">${p.size}</div><p class="desc">${p.description}</p><div class="product-bottom"><strong>${money(p.price)}</strong><button class="add" data-id="${p.id}">Add to cart</button></div></div>`;grid.appendChild(el)});document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{cart[b.dataset.id]=(cart[b.dataset.id]||0)+1;save();openCart()})}
-function save(){localStorage.setItem('bencosCart',JSON.stringify(cart));renderCart()}
-function renderCart(){const box=document.getElementById('cartItems');box.innerHTML='';let total=0,count=0;Object.entries(cart).forEach(([id,q])=>{const p=PRODUCTS.find(x=>x.id===id);if(!p)return;total+=p.price*q;count+=q;const el=document.createElement('div');el.className='cart-item';el.innerHTML=`<img src="${p.image}"><div><strong>${p.name}</strong><div class="qty"><button class="minus">−</button><span>${q}</span><button class="plus">+</button></div></div><strong>${money(p.price*q)}</strong>`;el.querySelector('.minus').onclick=()=>chg(id,-1);el.querySelector('.plus').onclick=()=>chg(id,1);box.appendChild(el)});if(!count)box.innerHTML='<p>Your cart is empty.</p>';document.getElementById('cartCount').textContent=count;document.getElementById('cartTotal').textContent=money(total);document.getElementById('shippingMsg').textContent=total>=50?'FREE shipping unlocked!':`Add ${money(Math.max(0,50-total))} more for FREE shipping.`}
-function chg(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save()}
-function openCart(){drawer.classList.add('show');backdrop.classList.add('show')}function closeCart(){drawer.classList.remove('show');backdrop.classList.remove('show')}
-document.getElementById('openCart').onclick=openCart;document.getElementById('closeCart').onclick=closeCart;backdrop.onclick=closeCart;
-document.getElementById('checkoutBtn').onclick=async()=>{if(!Object.keys(cart).length)return alert('Your cart is empty.');const items=Object.entries(cart).map(([id,quantity])=>({price:PRODUCTS.find(p=>p.id===id).price_id,quantity}));const btn=document.getElementById('checkoutBtn');btn.disabled=true;btn.textContent='Opening secure checkout...';try{const r=await fetch('/api/create-checkout-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items})});const d=await r.json();if(!r.ok)throw new Error(d.error||'Checkout failed');location.href=d.url}catch(e){alert(e.message)}finally{btn.disabled=false;btn.textContent='Secure Checkout'}};
-document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProducts(b.dataset.filter)});
-renderProducts();renderCart();
+const PRODUCTS = [
+
+  {
+
+    id: "orange-cream",
+
+    name: "Orange Juice Body Cream",
+
+    size: "4 oz",
+
+    category: "Skin Care",
+
+    image: "assets/orange-cream.jpg",
+
+    description: "Refreshing body cream with orange-inspired care to hydrate, soften and leave skin feeling smooth."
+
+  },
+
+  {
+
+    id: "shea-4",
+
+    name: "Shea Butter Body Cream",
+
+    size: "4 oz",
+
+    category: "Skin Care",
+
+    image: "assets/shea-4.jpg",
+
+    description: "Rich 4 oz shea butter cream designed for deep moisture, softness and everyday skin nourishment."
+
+  },
+
+  {
+
+    id: "shea-2",
+
+    name: "Shea Butter Body Cream",
+
+    size: "2 oz",
+
+    category: "Skin Care",
+
+    image: "assets/shea-2.jpg",
+
+    description: "Compact 2 oz moisturizing shea butter cream, ideal for travel and daily hydration."
+
+  },
+
+  {
+
+    id: "argan-serum",
+
+    name: "Argan Oil Serum",
+
+    size: "Serum",
+
+    category: "Body Care",
+
+    image: "assets/argan-serum.jpg",
+
+    description: "Lightweight argan oil serum that helps nourish and hydrate hair, face and skin."
+
+  },
+
+  {
+
+    id: "menthol-balm",
+
+    name: "Menthol Muscle Balm",
+
+    size: "4 oz",
+
+    category: "Body Care",
+
+    image: "assets/menthol-balm.jpg",
+
+    description: "Cooling menthol balm formulated for a soothing massage experience on tired muscles."
+
+  },
+
+  {
+
+    id: "body-lotion",
+
+    name: "Hand & Body Lotion",
+
+    size: "200 ml",
+
+    category: "Body Care",
+
+    image: "assets/body-lotion.jpg",
+
+    description: "Lightweight daily lotion that moisturizes hands and body without a heavy or greasy feel."
+
+  },
+
+  {
+
+    id: "rose-oil",
+
+    name: "Rose Massage Oil",
+
+    size: "4 oz",
+
+    category: "Body Care",
+
+    image: "assets/rose-oil.jpg",
+
+    description: "Rose-scented massage oil that glides smoothly over skin and leaves it feeling soft and conditioned."
+
+  },
+
+  {
+
+    id: "anti-dandruff",
+
+    name: "Anti Dandruff Shampoo & Conditioner",
+
+    size: "8 oz each",
+
+    category: "Hair Care",
+
+    image: "assets/anti-dandruff.jpg",
+
+    description: "Two-piece anti-dandruff hair-care set created to cleanse the scalp while keeping hair soft and manageable."
+
+  },
+
+  {
+
+    id: "red-hair",
+
+    name: "Red Hair Shampoo & Conditioner",
+
+    size: "8 oz each",
+
+    category: "Hair Care",
+
+    image: "assets/red-hair.jpg",
+
+    description: "Shampoo and conditioner duo made for red hair, helping cleanse, condition and maintain a vibrant-looking finish."
+
+  },
+
+  {
+
+    id: "aloe",
+
+    name: "Aloe Vera Cream",
+
+    size: "4 oz",
+
+    category: "Skin Care",
+
+    image: "assets/aloe.jpg",
+
+    description: "Aloe vera moisturizing cream designed to hydrate, soothe and refresh skin for everyday use."
+
+  },
+
+  {
+
+    id: "reishi",
+
+    name: "Reishi Mushroom Cream",
+
+    size: "4 oz",
+
+    category: "Skin Care",
+
+    image: "assets/reishi.jpg",
+
+    description: "Moisturizing skin cream featuring reishi mushroom-inspired care for a soft, nourished and radiant appearance."
+
+  },
+
+  {
+
+    id: "bronzing",
+
+    name: "Skin Bronzing Cream",
+
+    size: "4 oz",
+
+    category: "Skin Care",
+
+    image: "assets/bronzing.jpg",
+
+    description: "Bronzing body cream designed to enhance a warm, sun-kissed appearance while moisturizing skin."
+
+  },
+
+  {
+
+    id: "rosemary",
+
+    name: "Rosemary Oil",
+
+    size: "2 oz",
+
+    category: "Hair Care",
+
+    image: "assets/rosemary.jpg",
+
+    description: "Rosemary oil for hair and scalp care, ideal for massage and a nourishing hair-care routine."
+
+  },
+
+  {
+
+    id: "collagen",
+
+    name: "Collagen Moisturizing Cream",
+
+    size: "1 oz",
+
+    category: "Skin Care",
+
+    image: "assets/collagen.jpg",
+
+    description: "Lightweight 1 oz collagen moisturizing cream that helps skin feel hydrated, soft and smooth."
+
+  },
+
+  {
+
+    id: "vitd",
+
+    name: "Vitamin D Body Oil – Coconut",
+
+    size: "4 oz",
+
+    category: "Body Care",
+
+    image: "assets/vitd.jpg",
+
+    description: "Coconut-scented Vitamin D body oil with a lightweight feel for moisturizing and softening the skin."
+
+  },
+
+  {
+
+    id: "trio",
+
+    name: "Brazilian Premium Hair Care Trio",
+
+    size: "8 oz + 8 oz + 4 oz",
+
+    category: "Hair Care",
+
+    image: "assets/trio.jpg",
+
+    description: "Complete Brazilian-inspired trio with shampoo, conditioner and leave-in styling cream for cleansing, conditioning and styling."
+
+  },
+
+  {
+
+    id: "clarifying",
+
+    name: "Clarifying Shampoo & Conditioner",
+
+    size: "8.5 fl oz each",
+
+    category: "Hair Care",
+
+    image: "assets/clarifying.jpg",
+
+    description: "Clarifying shampoo and conditioner pair designed to remove buildup while keeping hair nourished and manageable."
+
+  }
+
+];
+
+let quoteList = JSON.parse(localStorage.getItem("bencosQuoteList") || "{}");
+
+const grid = document.getElementById("productGrid");
+
+const drawer = document.getElementById("cartDrawer");
+
+const backdrop = document.getElementById("backdrop");
+
+function renderProducts(filter = "All") {
+
+  grid.innerHTML = "";
+
+  PRODUCTS
+
+    .filter(p => filter === "All" || p.category === filter)
+
+    .forEach(p => {
+
+      const el = document.createElement("article");
+
+      el.className = "product";
+
+      el.innerHTML = `
+
+        <img src="${p.image}" alt="${p.name}">
+
+        <div class="product-body">
+
+          <small>${p.category}</small>
+
+          <h3>${p.name}</h3>
+
+          <div class="size">${p.size}</div>
+
+          <p class="desc">${p.description}</p>
+
+          <div class="product-bottom">
+
+            <strong>Wholesale</strong>
+
+            <button class="add" data-id="${p.id}">
+
+              Add to Quote
+
+            </button>
+
+          </div>
+
+        </div>
+
+      `;
+
+      grid.appendChild(el);
+
+    });
+
+  document.querySelectorAll(".add").forEach(button => {
+
+    button.onclick = () => {
+
+      const id = button.dataset.id;
+
+      quoteList[id] = (quoteList[id] || 0) + 1;
+
+      save();
+
+      openCart();
+
+    };
+
+  });
+
+}
+
+function save() {
+
+  localStorage.setItem("bencosQuoteList", JSON.stringify(quoteList));
+
+  renderCart();
+
+}
+
+function renderCart() {
+
+  const box = document.getElementById("cartItems");
+
+  const countElement = document.getElementById("cartCount");
+
+  const totalElement = document.getElementById("cartTotal");
+
+  const shippingElement = document.getElementById("shippingMsg");
+
+  const quoteButton = document.getElementById("checkoutBtn");
+
+  box.innerHTML = "";
+
+  let count = 0;
+
+  Object.entries(quoteList).forEach(([id, quantity]) => {
+
+    const product = PRODUCTS.find(p => p.id === id);
+
+    if (!product) return;
+
+    count += quantity;
+
+    const el = document.createElement("div");
+
+    el.className = "cart-item";
+
+    el.innerHTML = `
+
+      <img src="${product.image}" alt="${product.name}">
+
+      <div>
+
+        <strong>${product.name}</strong>
+
+        <small>${product.size}</small>
+
+        <div class="qty">
+
+          <button class="minus">−</button>
+
+          <span>${quantity}</span>
+
+          <button class="plus">+</button>
+
+        </div>
+
+      </div>
+
+      <strong>Qty ${quantity}</strong>
+
+    `;
+
+    el.querySelector(".minus").onclick = () => changeQty(id, -1);
+
+    el.querySelector(".plus").onclick = () => changeQty(id, 1);
+
+    box.appendChild(el);
+
+  });
+
+  if (!count) {
+
+    box.innerHTML = "<p>Your quote list is empty.</p>";
+
+  }
+
+  if (countElement) countElement.textContent = count;
+
+  if (totalElement) {
+
+    totalElement.textContent = "Pricing by quote";
+
+  }
+
+  if (shippingElement) {
+
+    shippingElement.textContent =
+
+      "Wholesale pricing and shipping are confirmed after we review your request.";
+
+  }
+
+  if (quoteButton) {
+
+    quoteButton.textContent = "Request a Quote";
+
+  }
+
+}
+
+function changeQty(id, change) {
+
+  quoteList[id] = (quoteList[id] || 0) + change;
+
+  if (quoteList[id] <= 0) {
+
+    delete quoteList[id];
+
+  }
+
+  save();
+
+}
+
+function openCart() {
+
+  drawer.classList.add("show");
+
+  backdrop.classList.add("show");
+
+}
+
+function closeCart() {
+
+  drawer.classList.remove("show");
+
+  backdrop.classList.remove("show");
+
+}
+
+document.getElementById("openCart").onclick = openCart;
+
+document.getElementById("closeCart").onclick = closeCart;
+
+backdrop.onclick = closeCart;
+
+document.getElementById("checkoutBtn").onclick = () => {
+
+  if (!Object.keys(quoteList).length) {
+
+    alert("Your quote list is empty.");
+
+    return;
+
+  }
+
+  const items = Object.entries(quoteList)
+
+    .map(([id, quantity]) => {
+
+      const product = PRODUCTS.find(p => p.id === id);
+
+      if (!product) return "";
+
+      return `${product.name} - ${product.size} - Quantity: ${quantity}`;
+
+    })
+
+    .filter(Boolean)
+
+    .join("\n");
+
+  const subject = "Wholesale Quote Request - Benco's";
+
+  const body =
+
+`Hello Benco's,
+
+I would like to request wholesale pricing for the following products:
+
+${items}
+
+Please contact me with wholesale pricing, minimum order information, shipping options and availability.
+
+Thank you.`;
+
+  window.location.href =
+
+    "mailto:bencosbeauties@gmail.com?subject=" +
+
+    encodeURIComponent(subject) +
+
+    "&body=" +
+
+    encodeURIComponent(body);
+
+};
+
+document.querySelectorAll(".filters button").forEach(button => {
+
+  button.onclick = () => {
+
+    document.querySelectorAll(".filters button").forEach(x => {
+
+      x.classList.remove("active");
+
+    });
+
+    button.classList.add("active");
+
+    renderProducts(button.dataset.filter);
+
+  };
+
+});
+
+renderProducts();
+
+renderCart();
