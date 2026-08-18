@@ -1,13 +1,219 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Benco's | Beauty, Confidence, You</title><link rel="stylesheet" href="styles.css"></head><body>
-<header><a class="brand" href="#"><img src="assets/bencos-logo.jpg" alt="Benco's"></a><nav><a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></nav><button id="openCart" class="cart-btn">Cart <span id="cartCount">0</span></button></header>
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Benco's Wholesale Beauty Products</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<header>
+
+  <a class="brand" href="#">
+
+    <img src="assets/bencos-logo.jpg" alt="Benco's">
+
+  </a>
+
+  <nav>
+
+    <a href="#shop">Products</a>
+
+    <a href="#about">About</a>
+
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+  <button id="openCart" class="cart-btn">
+
+    Quote List <span id="cartCount">0</span>
+
+  </button>
+
+</header>
+
 <main>
-<section class="hero"><div><p class="eyebrow">BODY • SKIN • HAIR CARE</p><h1>Beauty made to feel like you.</h1><p>Shop Benco’s beauty collection with secure Stripe checkout.</p><a class="primary" href="#shop">Shop now</a></div><img src="assets/catalog-4.jpg" alt="Benco's products"></section>
-<section class="shipping-banner">🇺🇸 U.S. shipping only · $5.99 standard shipping · FREE shipping on orders $50+</section>
-<section id="shop" class="shop"><div class="section-head"><div><p class="eyebrow">SHOP BENCO'S</p><h2>Our Collection</h2></div><div class="filters"><button class="active" data-filter="All">All</button><button data-filter="Hair Care">Hair Care</button><button data-filter="Skin Care">Skin Care</button><button data-filter="Body Care">Body Care</button></div></div><div id="productGrid" class="grid"></div></section>
-<section id="about" class="about"><h2>Beauty. Confidence. You.</h2><p>Beauty products made with care in Miami, Florida.</p></section>
-<section id="contact" class="contact"><h2>Wholesale & Support</h2><p><a href="mailto:bencosbeauties@gmail.com">bencosbeauties@gmail.com</a></p></section>
+
+<section class="hero">
+
+  <div>
+
+    <p class="eyebrow">WHOLESALE • BODY • SKIN • HAIR CARE</p>
+
+    <h1>Wholesale beauty products made in Miami.</h1>
+
+    <p>
+
+      Explore Benco’s wholesale collection. Select the products and quantities
+
+      you are interested in and request a personalized wholesale quote.
+
+    </p>
+
+    <a class="primary" href="#shop">View Products</a>
+
+  </div>
+
+  <img src="assets/catalog-4.jpg" alt="Benco's wholesale beauty products">
+
+</section>
+
+<section class="shipping-banner">
+
+  WHOLESALE ONLY · PRICING PROVIDED BY QUOTE · U.S. SHIPPING AVAILABLE
+
+</section>
+
+<section id="shop" class="shop">
+
+  <div class="section-head">
+
+    <div>
+
+      <p class="eyebrow">BENCO'S WHOLESALE</p>
+
+      <h2>Our Collection</h2>
+
+      <p>
+
+        Add the products you are interested in to your Quote List.
+
+        Wholesale pricing is provided after we review your requested quantities.
+
+      </p>
+
+    </div>
+
+    <div class="filters">
+
+      <button class="active" data-filter="All">All</button>
+
+      <button data-filter="Hair Care">Hair Care</button>
+
+      <button data-filter="Skin Care">Skin Care</button>
+
+      <button data-filter="Body Care">Body Care</button>
+
+    </div>
+
+  </div>
+
+  <div id="productGrid" class="grid"></div>
+
+</section>
+
+<section id="about" class="about">
+
+  <h2>Wholesale Beauty Manufacturing</h2>
+
+  <p>
+
+    Benco’s is a Miami, Florida based beauty products manufacturer specializing
+
+    in wholesale body, skin and hair care products.
+
+  </p>
+
+  <p>
+
+    Products are available for wholesale purchasing. Pricing may vary depending
+
+    on products, quantities, packaging requirements and shipping destination.
+
+  </p>
+
+</section>
+
+<section id="contact" class="contact">
+
+  <h2>Wholesale Inquiries</h2>
+
+  <p>
+
+    Build your Quote List and submit your request, or contact us directly:
+
+  </p>
+
+  <p>
+
+    <a href="mailto:bencosbeauties@gmail.com">
+
+      bencosbeauties@gmail.com
+
+    </a>
+
+  </p>
+
+</section>
+
 </main>
-<footer>© 2026 Benco’s. All rights reserved.</footer>
-<div id="backdrop" class="backdrop"></div><aside id="cartDrawer" class="cart"><div class="cart-head"><h3>Your Cart</h3><button id="closeCart">×</button></div><div id="cartItems"></div><div class="cart-foot"><div class="total"><span>Subtotal</span><strong id="cartTotal">$0.00</strong></div><div id="shippingMsg" class="shipping-msg"></div><button id="checkoutBtn" class="primary full">Secure Checkout</button><small>Payments are processed securely by Stripe.</small></div></aside>
-<script src="app.js"></script></body></html>
+
+<footer>
+
+  © 2026 Benco’s. All rights reserved.
+
+</footer>
+
+<div id="backdrop" class="backdrop"></div>
+
+<aside id="cartDrawer" class="cart">
+
+  <div class="cart-head">
+
+    <h3>Your Quote List</h3>
+
+    <button id="closeCart">×</button>
+
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="cart-foot">
+
+    <div class="total">
+
+      <span>Wholesale Pricing</span>
+
+      <strong id="cartTotal">Pricing by quote</strong>
+
+    </div>
+
+    <div id="shippingMsg" class="shipping-msg">
+
+      Wholesale pricing and shipping are confirmed after we review your request.
+
+    </div>
+
+    <button id="checkoutBtn" class="primary full">
+
+      Request a Quote
+
+    </button>
+
+    <small>
+
+      No payment is collected online. We will review your request and contact you
+
+      with wholesale pricing and availability.
+
+    </small>
+
+  </div>
+
+</aside>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
