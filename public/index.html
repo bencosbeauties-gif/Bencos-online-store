@@ -1,219 +1,240 @@
 <!doctype html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
-
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>Benco's Wholesale Beauty Products</title>
-
-  <link rel="stylesheet" href="styles.css">
-
+  <meta name="description" content="Benco's wholesale beauty products. Hair care, skin care and body care manufactured in Miami, Florida.">
+  <title>Benco's | Wholesale Beauty Products</title>
+  <style>
+    :root{
+      --wine:#7b1f3a;
+      --rose:#b7687c;
+      --gold:#c9a66b;
+      --cream:#fbf7f2;
+      --ink:#2f292b;
+      --muted:#746a6d;
+      --line:#eadfd8;
+      --white:#fff;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--white)}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    header{
+      position:sticky;top:0;z-index:20;
+      display:flex;align-items:center;justify-content:space-between;gap:24px;
+      padding:14px clamp(18px,5vw,64px);background:rgba(255,255,255,.96);
+      border-bottom:1px solid var(--line);backdrop-filter:blur(10px)
+    }
+    .brand img{width:118px;height:56px;object-fit:contain}
+    nav{display:flex;gap:24px;font-weight:700;font-size:14px}
+    nav a:hover{color:var(--wine)}
+    .contact-top{
+      background:var(--wine);color:white;padding:11px 17px;border-radius:999px;
+      font-weight:800;font-size:14px
+    }
+    .hero{
+      min-height:72vh;display:grid;place-items:center;text-align:center;
+      padding:80px 20px;background:
+      radial-gradient(circle at top left,rgba(183,104,124,.16),transparent 32%),
+      radial-gradient(circle at bottom right,rgba(201,166,107,.16),transparent 30%),
+      var(--cream)
+    }
+    .hero-inner{max-width:900px}
+    .eyebrow{letter-spacing:.22em;font-size:13px;font-weight:900;color:var(--wine)}
+    h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(44px,8vw,78px);line-height:1.02;margin:18px 0;color:var(--wine)}
+    .hero p.lead{font-size:clamp(18px,2.7vw,24px);line-height:1.6;color:var(--muted);max-width:760px;margin:0 auto 30px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;
+      border-radius:10px;font-weight:900;border:2px solid var(--wine)
+    }
+    .btn.primary{background:var(--wine);color:white}
+    .btn.secondary{background:white;color:var(--wine)}
+    .notice{
+      background:var(--wine);color:white;text-align:center;padding:14px 18px;
+      font-weight:800;letter-spacing:.02em
+    }
+    section{padding:72px clamp(18px,5vw,70px)}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 35px}
+    .section-head h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(34px,5vw,52px);margin:0 0 12px;color:var(--wine)}
+    .section-head p{color:var(--muted);line-height:1.7;margin:0}
+    .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:34px}
+    .filters button{
+      border:1px solid var(--line);background:white;padding:10px 15px;border-radius:999px;
+      font-weight:800;cursor:pointer;color:var(--ink)
+    }
+    .filters button.active,.filters button:hover{background:var(--wine);color:white;border-color:var(--wine)}
+    .grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;max-width:1260px;margin:auto
+    }
+    .product{
+      border:1px solid var(--line);border-radius:18px;overflow:hidden;background:white;
+      box-shadow:0 8px 28px rgba(72,45,54,.07);display:flex;flex-direction:column
+    }
+    .product img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f6f1ee}
+    .product-body{padding:18px;display:flex;flex-direction:column;gap:9px;flex:1}
+    .category{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);font-weight:900}
+    .product h3{font-family:Georgia,'Times New Roman',serif;font-size:22px;margin:0;color:var(--ink)}
+    .size{font-weight:800;color:var(--wine)}
+    .desc{color:var(--muted);font-size:14px;line-height:1.55;margin:0 0 8px}
+    .quote-btn{
+      margin-top:auto;background:var(--wine);color:white;border:0;border-radius:10px;
+      padding:12px 14px;font-weight:900;cursor:pointer;width:100%
+    }
+    .about{background:var(--cream)}
+    .about-grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .about h2,.contact h2{font-family:Georgia,'Times New Roman',serif;color:var(--wine);font-size:42px;margin-top:0}
+    .about p{line-height:1.75;color:var(--muted)}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    .fact{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+    .fact strong{display:block;color:var(--wine);font-size:25px;margin-bottom:6px}
+    .contact{text-align:center}
+    .contact-card{max-width:760px;margin:auto;background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:36px 24px}
+    .contact-card p{color:var(--muted);line-height:1.7}
+    footer{background:#2c2527;color:#eee;padding:28px 20px;text-align:center;font-size:14px}
+    footer a{color:white;font-weight:800}
+    @media(max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:760px){
+      header{gap:10px;padding:10px 14px}.brand img{width:92px;height:44px}
+      nav{display:none}.contact-top{font-size:12px;padding:10px 12px}
+      .hero{min-height:64vh;padding:65px 18px}
+      .grid{grid-template-columns:repeat(2,1fr);gap:14px}
+      .product-body{padding:14px}.product h3{font-size:18px}
+      .about-grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){.grid{grid-template-columns:1fr}.facts{grid-template-columns:1fr}}
+  </style>
 </head>
-
 <body>
 
 <header>
-
-  <a class="brand" href="#">
-
-    <img src="assets/bencos-logo.jpg" alt="Benco's">
-
-  </a>
-
+  <a class="brand" href="#top"><img src="assets/bencos-logo.jpg" alt="Benco's"></a>
   <nav>
-
-    <a href="#shop">Products</a>
-
-    <a href="#about">About</a>
-
+    <a href="#products">Wholesale Products</a>
+    <a href="#about">About Us</a>
     <a href="#contact">Contact</a>
-
   </nav>
-
-  <button id="openCart" class="cart-btn">
-
-    Quote List <span id="cartCount">0</span>
-
-  </button>
-
+  <a class="contact-top" href="mailto:bencosbeauties@gmail.com?subject=Wholesale%20Inquiry">Wholesale Inquiry</a>
 </header>
 
-<main>
-
-<section class="hero">
-
-  <div>
-
-    <p class="eyebrow">WHOLESALE • BODY • SKIN • HAIR CARE</p>
-
-    <h1>Wholesale beauty products made in Miami.</h1>
-
-    <p>
-
-      Explore Benco’s wholesale collection. Select the products and quantities
-
-      you are interested in and request a personalized wholesale quote.
-
-    </p>
-
-    <a class="primary" href="#shop">View Products</a>
-
-  </div>
-
-  <img src="assets/catalog-4.jpg" alt="Benco's wholesale beauty products">
-
-</section>
-
-<section class="shipping-banner">
-
-  WHOLESALE ONLY · PRICING PROVIDED BY QUOTE · U.S. SHIPPING AVAILABLE
-
-</section>
-
-<section id="shop" class="shop">
-
-  <div class="section-head">
-
-    <div>
-
-      <p class="eyebrow">BENCO'S WHOLESALE</p>
-
-      <h2>Our Collection</h2>
-
-      <p>
-
-        Add the products you are interested in to your Quote List.
-
-        Wholesale pricing is provided after we review your requested quantities.
-
-      </p>
-
+<main id="top">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">WHOLESALE BEAUTY MANUFACTURER • MIAMI, FL</div>
+      <h1>Beauty products made for your business.</h1>
+      <p class="lead">Explore Benco's wholesale collection of hair, skin and body care products. Pricing is provided directly based on product selection and order quantity.</p>
+      <div class="actions">
+        <a class="btn primary" href="#products">View Wholesale Products</a>
+        <a class="btn secondary" href="mailto:bencosbeauties@gmail.com?subject=Wholesale%20Pricing%20Request">Request Wholesale Pricing</a>
+      </div>
     </div>
+  </section>
 
+  <div class="notice">WHOLESALE ONLY • CONTACT US FOR PRICING & ORDER QUANTITIES</div>
+
+  <section id="products">
+    <div class="section-head">
+      <h2>Wholesale Products</h2>
+      <p>Browse our available collection. No retail prices are displayed online. Contact us for wholesale pricing, minimum quantities and availability.</p>
+    </div>
     <div class="filters">
-
       <button class="active" data-filter="All">All</button>
-
       <button data-filter="Hair Care">Hair Care</button>
-
       <button data-filter="Skin Care">Skin Care</button>
-
       <button data-filter="Body Care">Body Care</button>
-
     </div>
+    <div class="grid" id="productGrid"></div>
+  </section>
 
-  </div>
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div>
+        <h2>Made with care in Miami.</h2>
+        <p>Benco's creates beauty products for wholesale customers and businesses. We focus on dependable production, attractive presentation and a growing collection of hair, skin and body care products.</p>
+        <p>Whether you are purchasing for resale, your beauty business or a larger wholesale order, contact us directly and we will help you with product availability and pricing.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>Wholesale</strong><span>Business-focused orders</span></div>
+        <div class="fact"><strong>Miami, FL</strong><span>Based in South Florida</span></div>
+        <div class="fact"><strong>Hair</strong><span>Shampoo, conditioner & oils</span></div>
+        <div class="fact"><strong>Skin & Body</strong><span>Creams, oils & lotions</span></div>
+      </div>
+    </div>
+  </section>
 
-  <div id="productGrid" class="grid"></div>
-
-</section>
-
-<section id="about" class="about">
-
-  <h2>Wholesale Beauty Manufacturing</h2>
-
-  <p>
-
-    Benco’s is a Miami, Florida based beauty products manufacturer specializing
-
-    in wholesale body, skin and hair care products.
-
-  </p>
-
-  <p>
-
-    Products are available for wholesale purchasing. Pricing may vary depending
-
-    on products, quantities, packaging requirements and shipping destination.
-
-  </p>
-
-</section>
-
-<section id="contact" class="contact">
-
-  <h2>Wholesale Inquiries</h2>
-
-  <p>
-
-    Build your Quote List and submit your request, or contact us directly:
-
-  </p>
-
-  <p>
-
-    <a href="mailto:bencosbeauties@gmail.com">
-
-      bencosbeauties@gmail.com
-
-    </a>
-
-  </p>
-
-</section>
-
+  <section class="contact" id="contact">
+    <div class="contact-card">
+      <h2>Request Wholesale Pricing</h2>
+      <p>Tell us which products you are interested in and the approximate quantity you need. We will provide wholesale pricing and availability directly.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:bencosbeauties@gmail.com?subject=Benco%27s%20Wholesale%20Pricing%20Request">Email Benco's</a>
+        <a class="btn secondary" href="tel:+13058484411">Call 305-848-4411</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
-
-  © 2026 Benco’s. All rights reserved.
-
+  © 2026 Benco's • Wholesale Beauty Products • Miami, Florida •
+  <a href="mailto:bencosbeauties@gmail.com">bencosbeauties@gmail.com</a>
 </footer>
 
-<div id="backdrop" class="backdrop"></div>
+<script>
+const PRODUCTS = [
+  {name:"Orange Juice Body Cream",size:"4 oz",category:"Skin Care",image:"assets/orange-cream.jpg",description:"Refreshing moisturizing body cream with orange-inspired care for soft, smooth-feeling skin."},
+  {name:"Shea Butter Body Cream",size:"4 oz",category:"Skin Care",image:"assets/shea-4.jpg",description:"Rich shea butter body cream created for everyday moisture and skin softness."},
+  {name:"Shea Butter Body Cream",size:"2 oz",category:"Skin Care",image:"assets/shea-2.jpg",description:"Compact shea butter moisturizing cream for daily hydration and convenient use."},
+  {name:"Argan Oil Serum",size:"Serum",category:"Body Care",image:"assets/argan-serum.jpg",description:"Lightweight argan oil serum for a nourishing hair, face and skin care routine."},
+  {name:"Menthol Muscle Balm",size:"4 oz",category:"Body Care",image:"assets/menthol-balm.jpg",description:"Cooling menthol balm designed for a soothing massage experience."},
+  {name:"Hand & Body Lotion",size:"200 ml",category:"Body Care",image:"assets/body-lotion.jpg",description:"Daily moisturizing lotion for hands and body with a lightweight feel."},
+  {name:"Rose Massage Oil",size:"4 oz",category:"Body Care",image:"assets/rose-oil.jpg",description:"Rose-scented massage oil that glides smoothly and leaves skin feeling conditioned."},
+  {name:"Anti Dandruff Shampoo & Conditioner",size:"8 oz each",category:"Hair Care",image:"assets/anti-dandruff.jpg",description:"Two-piece hair care set for cleansing the scalp while keeping hair manageable."},
+  {name:"Red Hair Shampoo & Conditioner",size:"8 oz each",category:"Hair Care",image:"assets/red-hair.jpg",description:"Shampoo and conditioner duo designed for red hair and a vibrant-looking finish."},
+  {name:"Aloe Vera Cream",size:"4 oz",category:"Skin Care",image:"assets/aloe.jpg",description:"Aloe vera moisturizing cream designed to hydrate, soothe and refresh skin."},
+  {name:"Reishi Mushroom Cream",size:"4 oz",category:"Skin Care",image:"assets/reishi.jpg",description:"Moisturizing skin cream featuring reishi mushroom-inspired care."},
+  {name:"Skin Bronzing Cream",size:"4 oz",category:"Skin Care",image:"assets/bronzing.jpg",description:"Bronzing body cream for a warm, sun-kissed appearance while moisturizing skin."},
+  {name:"Rosemary Oil",size:"2 oz",category:"Hair Care",image:"assets/rosemary.jpg",description:"Rosemary oil for hair and scalp care, ideal for massage and a nourishing routine."},
+  {name:"Collagen Moisturizing Cream",size:"1 oz",category:"Skin Care",image:"assets/collagen.jpg",description:"Lightweight collagen moisturizing cream for hydrated, soft and smooth-feeling skin."},
+  {name:"Vitamin D Body Oil – Coconut",size:"4 oz",category:"Body Care",image:"assets/vitd.jpg",description:"Coconut-scented Vitamin D body oil for moisturizing and softening the skin."},
+  {name:"Brazilian Premium Hair Care Trio",size:"8 oz + 8 oz + 4 oz",category:"Hair Care",image:"assets/trio.jpg",description:"Complete trio with shampoo, conditioner and leave-in styling cream."},
+  {name:"Clarifying Shampoo & Conditioner",size:"8.5 fl oz each",category:"Hair Care",image:"assets/clarifying.jpg",description:"Clarifying shampoo and conditioner pair designed to remove buildup while keeping hair manageable."}
+];
 
-<aside id="cartDrawer" class="cart">
+const grid = document.getElementById("productGrid");
 
-  <div class="cart-head">
+function renderProducts(filter="All"){
+  grid.innerHTML = "";
+  PRODUCTS
+    .filter(p => filter === "All" || p.category === filter)
+    .forEach(p => {
+      const article = document.createElement("article");
+      article.className = "product";
+      const subject = encodeURIComponent("Wholesale pricing request - " + p.name);
+      const body = encodeURIComponent("Hello Benco's,\\n\\nI would like wholesale pricing and availability for:\\n" + p.name + " (" + p.size + ")\\n\\nApproximate quantity: ");
+      article.innerHTML = `
+        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        <div class="product-body">
+          <div class="category">${p.category}</div>
+          <h3>${p.name}</h3>
+          <div class="size">${p.size}</div>
+          <p class="desc">${p.description}</p>
+          <a class="quote-btn" href="mailto:bencosbeauties@gmail.com?subject=${subject}&body=${body}">Request Wholesale Pricing</a>
+        </div>`;
+      grid.appendChild(article);
+    });
+}
 
-    <h3>Your Quote List</h3>
+document.querySelectorAll(".filters button").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+    button.classList.add("active");
+    renderProducts(button.dataset.filter);
+  });
+});
 
-    <button id="closeCart">×</button>
-
-  </div>
-
-  <div id="cartItems"></div>
-
-  <div class="cart-foot">
-
-    <div class="total">
-
-      <span>Wholesale Pricing</span>
-
-      <strong id="cartTotal">Pricing by quote</strong>
-
-    </div>
-
-    <div id="shippingMsg" class="shipping-msg">
-
-      Wholesale pricing and shipping are confirmed after we review your request.
-
-    </div>
-
-    <button id="checkoutBtn" class="primary full">
-
-      Request a Quote
-
-    </button>
-
-    <small>
-
-      No payment is collected online. We will review your request and contact you
-
-      with wholesale pricing and availability.
-
-    </small>
-
-  </div>
-
-</aside>
-
-<script src="app.js"></script>
-
+renderProducts();
+</script>
 </body>
-
 </html>
